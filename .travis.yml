@@ -1,11 +1,17 @@
 dist: trusty
 
+sudo: required
+
 language:
   node_js
 
 node_js:
   10.3.0
 
+before_install:
+  - 'sudo chown root /usr/lib/chromium-browser/chrome-sandbox'
+  - 'sudo chmod 4755 /usr/lib/chromium-browser/chrome-sandbox'
+  
 install:
   - npm install -g karma-cli
   - npm install
